@@ -1,0 +1,234 @@
+/* Nothing here yet */
+/*Brand Colors*/
+$cjBluePrimary: #005F99;
+$cjGreen: #8EBF72;
+
+/*Colors*/
+$darkerGray: #333333;
+$darkGray: #505050;
+$lightGray: #747474;
+$lighterGray: #8E8E8E;
+$lightestGray: #E3E3E3;
+$alertRed: #df485c;
+$warningOrange: #f08a24;
+$warningYellow: #efcc08;
+$warningBG: #fffad3;
+$successGreen: #4c9804;
+$lightYellow: #fffad3;
+
+/*General Colors*/
+$contentBG: #E6E6E6;
+$contentPageBG: #FFF;
+$contentText: #505050;
+$contentBorder: #D6D6D6;
+$dividerColor: #CFCFCF;
+$headerBG: #F7F7F7;
+$inputBG: #F7F7F7;
+$inputBorder: $lightestGray;
+$btnText: $darkGray;
+
+$xsmall-screen: 480px;
+$small-screen: 768px;
+$row-width: 1080px;
+
+@mixin breakpoint($point) {
+    /*@if $point == large-device-lower {
+        @media (max-width: $large-screen) {
+            @content;
+        }
+    }
+    @else if $point == medium-device-lower {
+        @media (max-width: $medium-screen) {
+            @content;
+        }
+    }*/
+    @if $point == row-width-lower {
+        @media screen and (max-width: $row-width) {
+            @content;
+        }
+    }
+    @else if $point == small-device-lower {
+        @media screen and (max-width: $small-screen) {
+            @content;
+        }
+    }
+    @else if $point == x-small-device-lower {
+        @media screen and (max-width: $xsmall-screen) {
+            @content;
+        }
+    }
+    /*apply to device size and larger*/
+    /*@else if $point == large-device-higher {
+        @media (min-width: $large-screen) {
+            @content;
+        }
+    }
+    @else if $point == medium-device-higher {
+        @media (min-width: $medium-screen) {
+            @content;
+        }
+    }*/
+    @else if $point == row-width-higher {
+        @media screen and (min-width: $row-width) {
+            @content;
+        }
+    }
+    @else if $point == small-device-higher {
+        @media screen and (min-width: $small-screen) {
+            @content;
+        }
+    }
+    @else if $point == x-small-device-higher {
+        @media screen and (min-width: $xsmall-screen) {
+            @content;
+        }
+    }
+}
+
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
+  #{$name}: $argument;
+}
+
+@mixin gradient-vertical($top, $bottom) {
+	background: $bottom; /* Old browsers */
+	background: -moz-linear-gradient(top, $top 0%, $bottom 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, $top 0%,$bottom 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, $top 0%,$bottom 100%); /* IE10+ */
+	background: linear-gradient(to bottom, $top 0%,$bottom 100%); /* W3C */
+}
+
+@mixin trans-fast ($property: all) {
+		-webkit-transition: $property 400ms;
+		-moz-transition:    $property 400ms;
+		-ms-transition:     $property 400ms;
+		-o-transition:      $property 400ms;
+		transition:         $property 400ms;
+}
+
+@mixin button() {
+	@include gradient-vertical(#F8F8F8, #EEE);
+	@include trans-fast(background);
+	@include vendor-prefix(box-shadow, (0 1px 0 rgba(255,255,255,.4) inset,0 1px 1px 1px rgba(0,0,0,.05)));
+    border: 1px solid #C0C3C8;
+    display: inline-block;
+    font-weight: bold;
+    padding: 8px 10px 7px;
+	line-height: normal;
+	color: #505050;
+	text-shadow: none;
+
+	&:hover {
+		@include gradient-vertical(lighten( #F8F8F8, 3 ), lighten( #EEE, 3 ));
+	}
+    &:focus {
+        outline: none;
+    }
+}
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	background: #FFF;
+}
+
+.navbar {
+	@include gradient-vertical(lighten( #F8F8F8, 3 ), lighten( #EEE, 3 ));
+	border-bottom: 1px solid #d6d6d6;
+
+	.navbar-inner {
+		background-color: transparent;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.brand {
+		background: url('logo_cj_secondary.png') no-repeat 0 0 transparent;
+		width: 210px;
+		height: 40px;
+
+		span {
+			display: none;
+		}
+	}
+	.nav {
+		top: 0;
+		padding-top: 20px;
+
+		@include breakpoint(small-device-higher) {
+			padding-top: 0;
+		}
+
+		li {
+			a {
+				color: $cjBluePrimary;
+				font-size: 16px;
+				font-weight: bold;
+
+				&:hover {
+					color: $cjBluePrimary;
+				}
+			}
+		}
+	}
+}
+
+#sidebar {
+	button {
+		@include vendor-prefix(box-shadow, none);
+	}
+}
+#docsSearch {
+	button {
+		@include button();
+	}
+}
+
+
+button, .button {
+	@include button();
+}
+
+/*.navbar {
+	margin-bottom: 20px;
+}
+.navbar .navbar-inner {
+	background-color: #FFF;
+	padding-top: 10px;
+	@include vendor-prefix(box-shadow, none);
+
+	.container-fluid {
+		height: 123px;
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			height: 0;
+			width: 182px;
+			z-index: 3;
+			left: 14px;
+			bottom: -24px;
+			border-top: 24px solid #FFF;
+			border-left: 14px solid transparent;
+			border-right: 14px solid transparent;
+		}
+	}
+
+	
+	.brand {
+		background: url('logo_cj.png') no-repeat 0 0 transparent;
+		width: 177px;
+		height: 113px;
+		margin-left: 20px;
+		position: relative;
+		top: 3px;
+	}
+}*/
