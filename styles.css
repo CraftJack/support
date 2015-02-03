@@ -336,6 +336,12 @@ h2, #contentArea h2 {
         /* W3C */ }
       #docsSearch #searchBar button:focus {
         outline: none; }
+      #docsSearch #searchBar button:active {
+        -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+        -o-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2); }
       @media screen and (min-width: 768px) {
         #docsSearch #searchBar button {
           width: 15%; } }
@@ -360,6 +366,8 @@ h2, #contentArea h2 {
 #fullArticle h5, #serp h5 {
   font-size: 12px;
   text-transform: uppercase; }
+#fullArticle p strong, #serp p strong {
+  color: #747474; }
 
 button, .button {
   background: #eeeeee;
@@ -410,3 +418,9 @@ button, .button {
     /* W3C */ }
   button:focus, .button:focus {
     outline: none; }
+  button:active, .button:active {
+    -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+    -o-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2); }
