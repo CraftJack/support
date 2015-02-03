@@ -27,9 +27,21 @@ $inputBG: #F7F7F7;
 $inputBorder: $lightestGray;
 $btnText: $darkGray;
 
+$primary-color: $cjBluePrimary;
+
 $xsmall-screen: 480px;
 $small-screen: 768px;
 $row-width: 1080px;
+
+@mixin fluid() {
+	margin-left: -20px;
+	margin-right: -20px;
+
+	@include breakpoint(small-device-higher) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
 
 @mixin breakpoint($point) {
     /*@if $point == large-device-lower {
@@ -130,6 +142,7 @@ $row-width: 1080px;
         outline: none;
     }
 }
+
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -138,21 +151,96 @@ $row-width: 1080px;
 
 body {
 	background: #FFF;
+	background: #e6e6e6;
+	color: #505050;
+}
+
+.input-style,
+textarea,
+input[type=text],
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel],
+input[type=color],
+.uneditable-input {
+	@include vendor-prefix(border-radius, 0);
+	&:focus {
+		border: 1px solid $primary-color;
+	    @include vendor-prefix(box-shadow, (inset 1px 1px 2px rgba(0,0,0, .25)));
+	    outline: none;
+	}
+}
+
+a {
+	color: $cjBluePrimary;
+}
+
+h1 {
+	font-size: 1.8em;
+	font-weight: bold;
+	color: $lighterGray;
+	line-height: 1.1;
+
+	@include breakpoint(small-device-higher) {
+		font-size: 2.333em;
+	}
+}
+
+h2 {
+	font-weight: bold;
+}
+
+#contentArea {
+	h1 {
+		@extend h1;
+	}
+	h2 {
+		@extend h2;
+	}
+}
+
+.contentWrapper {
+	@include vendor-prefix(box-shadow, (0 1px 5px 2px rgba(0,0,0,.02)));
+}
+
+#sidebar form .search-query {
+	@extend .input-style;
+}
+
+#serp-dd .result a:hover, #serp-dd .result > li.active, #full-Article strong a, .collection a, .contentWrapper a, .most-pop-articles .popArticles a, .most-pop-articles .popArticles a:hover span, .category-list .category .article-count, .category-list .category:hover .article-count {
+	@extend a;
 }
 
 .navbar {
+	position: relative;
+	z-index: 1;
 	@include gradient-vertical(lighten( #F8F8F8, 3 ), lighten( #EEE, 3 ));
-	border-bottom: 1px solid #d6d6d6;
+	@include vendor-prefix(box-shadow, (0 1px 5px 0 rgba(0,0,0,.3)));
 
 	.navbar-inner {
 		background-color: transparent;
 		padding-top: 10px;
 		padding-bottom: 10px;
+		border-bottom: 7px solid $cjBluePrimary;
 	}
 	.brand {
 		background: url('logo_cj_secondary.png') no-repeat 0 0 transparent;
 		width: 210px;
 		height: 40px;
+		margin-left: 0;
+		
+		@include breakpoint(row-width-higher) {
+			margin-left: 20px;
+		}
 
 		span {
 			display: none;
@@ -179,56 +267,84 @@ body {
 		}
 	}
 }
-
+.row-fluid, .most-pop-articles {
+	width: auto;
+	background: #FFF;
+	border: solid #d6d6d6;
+	border-width: 0 1px 1px;
+	margin-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+	@include fluid();
+}
 #sidebar {
 	button {
 		@include vendor-prefix(box-shadow, none);
 	}
 }
+
 #docsSearch {
-	button {
-		@include button();
+	border-bottom: 1px solid #e3e3e3;
+	background: $headerBG;
+	border: solid #d6d6d6;
+	border-width: 0 1px 1px;
+	max-width: $row-width - 40px;
+	margin: 0 auto;
+	@include fluid();
+
+	h1 {
+		@extend h1;
+	}
+	
+	+ #contentArea {
+		@include fluid();
+		max-width: $row-width - 40px;
+		
+		.most-pop-articles {
+			max-width: 200%;
+			margin-left: -20px;
+			margin-right: -20px;
+			padding: 20px 40px;
+		}
+	}
+
+	#searchBar {
+		text-align: left;
+
+		input, button {
+			@include vendor-prefix(border-radius, 0);
+		}
+		input {
+			width: 80%;
+			z-index: 10;
+			position: relative;
+			@include breakpoint(small-device-higher) {
+				width: 85%;
+			}
+		}
+		button {
+			@include button();
+			width: 20%;
+			right: 1px;
+			z-index: 5;
+			@include breakpoint(small-device-higher) {
+				width: 15%;
+			}
+			@include breakpoint(x-small-device-lower) {
+				padding: .9em;
+			}
+		}
 	}
 }
 
+#fullArticle, #serp {
+	h1, h2, h3, h4, h5, p,
+	ul, ol, li,
+	div, blockquote, dd, table {
+		color: $darkGray;
+	}
+}
 
 button, .button {
 	@include button();
 }
-
-/*.navbar {
-	margin-bottom: 20px;
-}
-.navbar .navbar-inner {
-	background-color: #FFF;
-	padding-top: 10px;
-	@include vendor-prefix(box-shadow, none);
-
-	.container-fluid {
-		height: 123px;
-
-		&:after {
-			content: "";
-			display: block;
-			position: absolute;
-			height: 0;
-			width: 182px;
-			z-index: 3;
-			left: 14px;
-			bottom: -24px;
-			border-top: 24px solid #FFF;
-			border-left: 14px solid transparent;
-			border-right: 14px solid transparent;
-		}
-	}
-
-	
-	.brand {
-		background: url('logo_cj.png') no-repeat 0 0 transparent;
-		width: 177px;
-		height: 113px;
-		margin-left: 20px;
-		position: relative;
-		top: 3px;
-	}
-}*/

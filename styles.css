@@ -8,9 +8,92 @@
   box-sizing: border-box; }
 
 body {
-  background: #FFF; }
+  background: #FFF;
+  background: #e6e6e6;
+  color: #505050; }
+
+.input-style, #sidebar form .search-query,
+textarea,
+input[type=text],
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel],
+input[type=color],
+.uneditable-input {
+  -webkit-border-radius: 0;
+  -ms-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0; }
+  .input-style:focus, #sidebar form .search-query:focus,
+  textarea:focus,
+  input[type=text]:focus,
+  input[type=password]:focus,
+  input[type=datetime]:focus,
+  input[type=datetime-local]:focus,
+  input[type=date]:focus,
+  input[type=month]:focus,
+  input[type=time]:focus,
+  input[type=week]:focus,
+  input[type=number]:focus,
+  input[type=email]:focus,
+  input[type=url]:focus,
+  input[type=search]:focus,
+  input[type=tel]:focus,
+  input[type=color]:focus,
+  .uneditable-input:focus {
+    border: 1px solid #005f99;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25);
+    -ms-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25);
+    -o-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25);
+    outline: none; }
+
+a, #serp-dd .result a:hover, #serp-dd .result > li.active, #full-Article strong a, .collection a, .contentWrapper a, .most-pop-articles .popArticles a, .most-pop-articles .popArticles a:hover span, .category-list .category .article-count, .category-list .category:hover .article-count {
+  color: #005f99; }
+
+h1, #contentArea h1, #docsSearch h1 {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #8e8e8e;
+  line-height: 1.1;
+  /*@if $point == large-device-lower {
+      @media (max-width: $large-screen) {
+          @content;
+      }
+  }
+  @else if $point == medium-device-lower {
+      @media (max-width: $medium-screen) {
+          @content;
+      }
+  }*/ }
+  @media screen and (min-width: 768px) {
+    h1, #contentArea h1, #docsSearch h1 {
+      font-size: 2.333em; } }
+
+h2, #contentArea h2 {
+  font-weight: bold; }
+
+.contentWrapper {
+  -webkit-box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.02);
+  -ms-box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.02);
+  -moz-box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.02);
+  -o-box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.02); }
 
 .navbar {
+  position: relative;
+  z-index: 1;
   background: #f6f6f6;
   /* Old browsers */
   background: -moz-linear-gradient(top, white 0%, #f6f6f6 100%);
@@ -25,15 +108,34 @@ body {
   /* IE10+ */
   background: linear-gradient(to bottom, white 0%, #f6f6f6 100%);
   /* W3C */
-  border-bottom: 1px solid #d6d6d6; }
+  -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3); }
   .navbar .navbar-inner {
     background-color: transparent;
     padding-top: 10px;
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    border-bottom: 7px solid #005f99; }
   .navbar .brand {
     background: url("logo_cj_secondary.png") no-repeat 0 0 transparent;
     width: 210px;
-    height: 40px; }
+    height: 40px;
+    margin-left: 0;
+    /*@if $point == large-device-lower {
+        @media (max-width: $large-screen) {
+            @content;
+        }
+    }
+    @else if $point == medium-device-lower {
+        @media (max-width: $medium-screen) {
+            @content;
+        }
+    }*/ }
+    @media screen and (min-width: 1080px) {
+      .navbar .brand {
+        margin-left: 20px; } }
     .navbar .brand span {
       display: none; }
   .navbar .nav {
@@ -52,12 +154,37 @@ body {
     @media screen and (min-width: 768px) {
       .navbar .nav {
         padding-top: 0; } }
-    .navbar .nav li a {
+    .navbar .nav li a, .navbar .nav li #serp-dd .result a:hover, #serp-dd .result .navbar .nav li a:hover, .navbar .nav li #serp-dd .result > li.active, #serp-dd .navbar .nav li .result > li.active, .navbar .nav li #full-Article strong a, #full-Article strong .navbar .nav li a, .navbar .nav li .most-pop-articles .popArticles a:hover span, .most-pop-articles .popArticles a:hover .navbar .nav li span, .navbar .nav li .category-list .category .article-count, .category-list .category .navbar .nav li .article-count {
       color: #005f99;
       font-size: 16px;
       font-weight: bold; }
-      .navbar .nav li a:hover {
+      .navbar .nav li a:hover, .navbar .nav li #serp-dd .result a:hover, #serp-dd .result .navbar .nav li a:hover, .navbar .nav li #serp-dd .result > li.active:hover, #serp-dd .navbar .nav li .result > li.active:hover, .navbar .nav li #full-Article strong a:hover, #full-Article strong .navbar .nav li a:hover, .navbar .nav li .most-pop-articles .popArticles a:hover span:hover, .most-pop-articles .popArticles a:hover .navbar .nav li span:hover, .navbar .nav li .category-list .category .article-count:hover, .category-list .category .navbar .nav li .article-count:hover {
         color: #005f99; }
+
+.row-fluid, .most-pop-articles {
+  width: auto;
+  background: #FFF;
+  border: solid #d6d6d6;
+  border-width: 0 1px 1px;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: -20px;
+  margin-right: -20px;
+  /*@if $point == large-device-lower {
+      @media (max-width: $large-screen) {
+          @content;
+      }
+  }
+  @else if $point == medium-device-lower {
+      @media (max-width: $medium-screen) {
+          @content;
+      }
+  }*/ }
+  @media screen and (min-width: 768px) {
+    .row-fluid, .most-pop-articles {
+      margin-left: auto;
+      margin-right: auto; } }
 
 #sidebar button {
   -webkit-box-shadow: none;
@@ -66,55 +193,162 @@ body {
   -o-box-shadow: none;
   box-shadow: none; }
 
-#docsSearch button {
-  background: #eeeeee;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #f8f8f8 0%, #eeeeee 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8f8f8), color-stop(100%, #eeeeee));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #f8f8f8 0%, #eeeeee 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #f8f8f8 0%, #eeeeee 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #f8f8f8 0%, #eeeeee 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #f8f8f8 0%, #eeeeee 100%);
-  /* W3C */
-  -webkit-transition: background 400ms;
-  -moz-transition: background 400ms;
-  -ms-transition: background 400ms;
-  -o-transition: background 400ms;
-  transition: background 400ms;
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.05);
-  -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.05);
-  -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.05);
-  border: 1px solid #C0C3C8;
-  display: inline-block;
-  font-weight: bold;
-  padding: 8px 10px 7px;
-  line-height: normal;
-  color: #505050;
-  text-shadow: none; }
-  #docsSearch button:hover {
-    background: #f6f6f6;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, white 0%, #f6f6f6 100%);
-    /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f6f6f6));
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, white 0%, #f6f6f6 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, white 0%, #f6f6f6 100%);
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, white 0%, #f6f6f6 100%);
-    /* IE10+ */
-    background: linear-gradient(to bottom, white 0%, #f6f6f6 100%);
-    /* W3C */ }
-  #docsSearch button:focus {
-    outline: none; }
+#docsSearch {
+  border-bottom: 1px solid #e3e3e3;
+  background: #f7f7f7;
+  border: solid #d6d6d6;
+  border-width: 0 1px 1px;
+  max-width: 1040px;
+  margin: 0 auto;
+  margin-left: -20px;
+  margin-right: -20px;
+  /*@if $point == large-device-lower {
+      @media (max-width: $large-screen) {
+          @content;
+      }
+  }
+  @else if $point == medium-device-lower {
+      @media (max-width: $medium-screen) {
+          @content;
+      }
+  }*/ }
+  @media screen and (min-width: 768px) {
+    #docsSearch {
+      margin-left: auto;
+      margin-right: auto; } }
+  #docsSearch + #contentArea {
+    margin-left: -20px;
+    margin-right: -20px;
+    /*@if $point == large-device-lower {
+        @media (max-width: $large-screen) {
+            @content;
+        }
+    }
+    @else if $point == medium-device-lower {
+        @media (max-width: $medium-screen) {
+            @content;
+        }
+    }*/
+    max-width: 1040px; }
+    @media screen and (min-width: 768px) {
+      #docsSearch + #contentArea {
+        margin-left: auto;
+        margin-right: auto; } }
+    #docsSearch + #contentArea .most-pop-articles {
+      max-width: 200%;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding: 20px 40px; }
+  #docsSearch #searchBar {
+    text-align: left; }
+    #docsSearch #searchBar input, #docsSearch #searchBar button {
+      -webkit-border-radius: 0;
+      -ms-border-radius: 0;
+      -moz-border-radius: 0;
+      -o-border-radius: 0;
+      border-radius: 0; }
+    #docsSearch #searchBar input {
+      width: 80%;
+      z-index: 10;
+      position: relative;
+      /*@if $point == large-device-lower {
+          @media (max-width: $large-screen) {
+              @content;
+          }
+      }
+      @else if $point == medium-device-lower {
+          @media (max-width: $medium-screen) {
+              @content;
+          }
+      }*/ }
+      @media screen and (min-width: 768px) {
+        #docsSearch #searchBar input {
+          width: 85%; } }
+    #docsSearch #searchBar button {
+      background: #eeeeee;
+      /* Old browsers */
+      background: -moz-linear-gradient(top, #f8f8f8 0%, #eeeeee 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8f8f8), color-stop(100%, #eeeeee));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #f8f8f8 0%, #eeeeee 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #f8f8f8 0%, #eeeeee 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #f8f8f8 0%, #eeeeee 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, #f8f8f8 0%, #eeeeee 100%);
+      /* W3C */
+      -webkit-transition: background 400ms;
+      -moz-transition: background 400ms;
+      -ms-transition: background 400ms;
+      -o-transition: background 400ms;
+      transition: background 400ms;
+      -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.05);
+      -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.05);
+      -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.05);
+      -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.05);
+      border: 1px solid #C0C3C8;
+      display: inline-block;
+      font-weight: bold;
+      padding: 8px 10px 7px;
+      line-height: normal;
+      color: #505050;
+      text-shadow: none;
+      width: 20%;
+      right: 1px;
+      z-index: 5;
+      /*@if $point == large-device-lower {
+          @media (max-width: $large-screen) {
+              @content;
+          }
+      }
+      @else if $point == medium-device-lower {
+          @media (max-width: $medium-screen) {
+              @content;
+          }
+      }*/
+      /*@if $point == large-device-lower {
+          @media (max-width: $large-screen) {
+              @content;
+          }
+      }
+      @else if $point == medium-device-lower {
+          @media (max-width: $medium-screen) {
+              @content;
+          }
+      }*/ }
+      #docsSearch #searchBar button:hover {
+        background: #f6f6f6;
+        /* Old browsers */
+        background: -moz-linear-gradient(top, white 0%, #f6f6f6 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f6f6f6));
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, white 0%, #f6f6f6 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, white 0%, #f6f6f6 100%);
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, white 0%, #f6f6f6 100%);
+        /* IE10+ */
+        background: linear-gradient(to bottom, white 0%, #f6f6f6 100%);
+        /* W3C */ }
+      #docsSearch #searchBar button:focus {
+        outline: none; }
+      @media screen and (min-width: 768px) {
+        #docsSearch #searchBar button {
+          width: 15%; } }
+      @media screen and (max-width: 480px) {
+        #docsSearch #searchBar button {
+          padding: .9em; } }
+
+#fullArticle h1, #fullArticle h2, #fullArticle h3, #fullArticle h4, #fullArticle h5, #fullArticle p,
+#fullArticle ul, #fullArticle ol, #fullArticle li,
+#fullArticle div, #fullArticle blockquote, #fullArticle dd, #fullArticle table, #serp h1, #serp h2, #serp h3, #serp h4, #serp h5, #serp p,
+#serp ul, #serp ol, #serp li,
+#serp div, #serp blockquote, #serp dd, #serp table {
+  color: #505050; }
 
 button, .button {
   background: #eeeeee;
@@ -165,40 +399,3 @@ button, .button {
     /* W3C */ }
   button:focus, .button:focus {
     outline: none; }
-
-/*.navbar {
-	margin-bottom: 20px;
-}
-.navbar .navbar-inner {
-	background-color: #FFF;
-	padding-top: 10px;
-	@include vendor-prefix(box-shadow, none);
-
-	.container-fluid {
-		height: 123px;
-
-		&:after {
-			content: "";
-			display: block;
-			position: absolute;
-			height: 0;
-			width: 182px;
-			z-index: 3;
-			left: 14px;
-			bottom: -24px;
-			border-top: 24px solid #FFF;
-			border-left: 14px solid transparent;
-			border-right: 14px solid transparent;
-		}
-	}
-
-	
-	.brand {
-		background: url('logo_cj.png') no-repeat 0 0 transparent;
-		width: 177px;
-		height: 113px;
-		margin-left: 20px;
-		position: relative;
-		top: 3px;
-	}
-}*/
