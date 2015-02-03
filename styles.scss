@@ -1,4 +1,3 @@
-/* Nothing here yet */
 /*Brand Colors*/
 $cjBluePrimary: #005F99;
 $cjGreen: #8EBF72;
@@ -127,6 +126,7 @@ $row-width: 1080px;
 	@include gradient-vertical(#F8F8F8, #EEE);
 	@include trans-fast(background);
 	@include vendor-prefix(box-shadow, (0 1px 0 rgba(255,255,255,.4) inset,0 1px 1px 1px rgba(0,0,0,.05)));
+	@include vendor-prefix(border-radius, 0);
     border: 1px solid #C0C3C8;
     display: inline-block;
     font-weight: bold;
@@ -139,10 +139,14 @@ $row-width: 1080px;
 		@include gradient-vertical(lighten( #F8F8F8, 3 ), lighten( #EEE, 3 ));
 	}
     &:focus {
+    	border-color: #C0C3C8 !important;
         outline: none;
+		-webkit-appearance: none;
+		@include vendor-prefix(box-shadow, none);
     }
     &:active {
     	@include vendor-prefix(box-shadow, (inset 0 1px 0 rgba(0,0,0,.2)));
+    	border-color: #C0C3C8;
     }
 }
 
@@ -183,6 +187,7 @@ input[type=tel],
 input[type=color],
 .uneditable-input {
 	@include vendor-prefix(border-radius, 0);
+	height: auto;
 	&:focus {
 		border: 1px solid $primary-color;
 	    @include vendor-prefix(box-shadow, (inset 1px 1px 2px rgba(0,0,0, .25)));
@@ -457,11 +462,15 @@ h2 {
 	}
 }
 
-button, .button {
+button, .button, .btn, input.btn {
 	@include button();
 }
 
 .articleFoot p {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-style: normal;
+}
+
+#contactModal h2 {
+	font-weight: bold;
 }
