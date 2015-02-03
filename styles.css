@@ -298,7 +298,8 @@ h2, #contentArea h2 {
       color: #505050;
       text-shadow: none;
       width: 20%;
-      right: 1px;
+      border-left: none;
+      right: 0;
       z-index: 5;
       /*@if $point == large-device-lower {
           @media (max-width: $large-screen) {

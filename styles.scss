@@ -329,7 +329,8 @@ h2 {
 		button {
 			@include button();
 			width: 20%;
-			right: 1px;
+			border-left: none;
+			right: 0;
 			z-index: 5;
 			@include breakpoint(small-device-higher) {
 				width: 15%;
