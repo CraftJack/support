@@ -116,11 +116,11 @@ $row-width: 1080px;
 }
 
 @mixin trans-fast ($property: all) {
-		-webkit-transition: $property 400ms;
-		-moz-transition:    $property 400ms;
-		-ms-transition:     $property 400ms;
-		-o-transition:      $property 400ms;
-		transition:         $property 400ms;
+	-webkit-transition: $property linear .4s;
+	-moz-transition:    $property linear .4s;
+	-ms-transition:     $property linear .4s;
+	-o-transition:      $property linear .4s;
+	transition:         $property linear .4s;
 }
 
 @mixin button() {
@@ -144,6 +144,10 @@ $row-width: 1080px;
     &:active {
     	@include vendor-prefix(box-shadow, (inset 0 1px 0 rgba(0,0,0,.2)));
     }
+}
+
+.box-shadow {
+	@include vendor-prefix(box-shadow, (0 1px 5px 2px rgba(0,0,0,.03)));
 }
 
 *, *:before, *:after {
@@ -214,7 +218,7 @@ h2 {
 		.category {
 			background: #F8F8F8;
 			border-color: $contentBorder;
-			@include vendor-prefix(box-shadow, (0 1px 5px 2px rgba(0,0,0,.02)));
+			@extend .box-shadow;
 
 			&:hover {
 				background: #FFF;
@@ -224,6 +228,11 @@ h2 {
 		&.two-col {
 			.category {
 				width: 48.1%;
+				margin-bottom: 3px;
+
+				@media (screen and min-width: 600px) {
+					margin-bottom: 20px;
+				}
 			}
 		}
 	}
@@ -234,7 +243,7 @@ h2 {
 }
 
 .contentWrapper {
-	@include vendor-prefix(box-shadow, (0 1px 5px 2px rgba(0,0,0,.02)));
+	@extend .box-shadow;
 	margin-bottom: 20px;
 
 	&.withRelated {
@@ -257,8 +266,12 @@ h2 {
 	button {
 		@include vendor-prefix(box-shadow, none);
 	}
-
-	.nav-list .active a, .nav-list .active a:hover, .nav-list .active a:focus {
+	.nav-list a {
+		&:hover {
+			color: $cjBluePrimary;
+		}
+	}
+	.nav-list .active a, .nav-list .active a:focus {
 		color: $contentText;
 	}
 }
@@ -279,6 +292,14 @@ h2 {
 		padding-bottom: 10px;
 		border-bottom: 7px solid $cjBluePrimary;
 	}
+	.btn-navbar {
+		right: -20px;
+		&:hover {
+			.icon-bar {
+				background-color: $cjBluePrimary;
+			}
+		}
+	}
 	.brand {
 		background: url('logo_cj_secondary.png') no-repeat 0 0 transparent;
 		width: 210px;
@@ -296,11 +317,16 @@ h2 {
 	.nav {
 		top: 0;
 		padding-top: 20px;
+		margin-right: -15px;
 
 		@include breakpoint(small-device-higher) {
 			padding-top: 0;
 		}
 
+		@include breakpoint(row-width-higher) {
+			margin-right: 5px;
+		}
+		
 		li {
 			a {
 				color: $cjBluePrimary;
@@ -323,6 +349,7 @@ h2 {
 	padding-left: 20px;
 	padding-right: 20px;
 	@include fluid();
+	@extend .box-shadow;
 }
 
 #docsSearch {
@@ -386,6 +413,14 @@ h2 {
 .most-pop-articles {
 	h2, .popArticles {
 		text-align: left;
+	}
+
+	.popArticles {
+		padding: 0;
+
+		li {
+			margin-left: 0;
+		}
 	}
 }
 
