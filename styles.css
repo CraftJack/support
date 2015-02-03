@@ -19,6 +19,9 @@ body {
   background: #e6e6e6;
   color: #505050; }
 
+h1, #contentArea h1, #docsSearch h1, h2, #contentArea h2, h3, h4, h5, h6, p {
+  color: #505050; }
+
 select,
 .input-style,
 #sidebar form .search-query,
@@ -420,7 +423,7 @@ h2, #contentArea h2 {
 #serp div, #serp blockquote, #serp dd, #serp table {
   color: #505050; }
 #fullArticle h3, #fullArticle h4, #fullArticle h5, #serp h3, #serp h4, #serp h5 {
-  color: #747474;
+  color: #8e8e8e;
   line-height: 1.1; }
 #fullArticle h3, #serp h3 {
   line-height: 1.1;

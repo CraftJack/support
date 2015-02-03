@@ -159,7 +159,10 @@ $row-width: 1080px;
 body {
 	background: #FFF;
 	background: #e6e6e6;
-	color: #505050;
+	color: $contentText;
+}
+h1, h2, h3, h4, h5, h6, p {
+	color: $contentText;
 }
 select,
 .input-style,
@@ -428,11 +431,11 @@ h2 {
 	h1, h2, h3, h4, h5, p,
 	ul, ol, li,
 	div, blockquote, dd, table {
-		color: $darkGray;
+		color: $contentText;
 
 	}
 	h3, h4, h5 {
-		color: $lightGray;
+		color: $lighterGray;
 		line-height: 1.1;
 	}
 	h3 {
