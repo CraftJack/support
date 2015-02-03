@@ -157,7 +157,7 @@ body {
 	background: #e6e6e6;
 	color: #505050;
 }
-
+select,
 .input-style,
 textarea,
 input[type=text],
@@ -190,7 +190,6 @@ a {
 h1 {
 	font-size: 1.8em;
 	font-weight: bold;
-	color: $lighterGray;
 	line-height: 1.1;
 
 	@include breakpoint(small-device-higher) {
@@ -209,15 +208,59 @@ h2 {
 	h2 {
 		@extend h2;
 	}
+	.category-list {
+		margin: 0 -31px 1em;
+
+		.category {
+			background: #F8F8F8;
+			border-color: $contentBorder;
+			@include vendor-prefix(box-shadow, (0 1px 5px 2px rgba(0,0,0,.02)));
+
+			&:hover {
+				background: #FFF;
+			}
+		}
+
+		&.two-col {
+			.category {
+				width: 48.1%;
+			}
+		}
+	}
+}
+
+.sep {
+	margin-bottom: 1em;
 }
 
 .contentWrapper {
 	@include vendor-prefix(box-shadow, (0 1px 5px 2px rgba(0,0,0,.02)));
 	margin-bottom: 20px;
+
+	&.withRelated {
+		margin-bottom: 0;
+	}
 }
 
-#sidebar form .search-query {
-	@extend .input-style;
+#sidebar {
+	h3 {
+		font-weight: bold;
+		text-transform: none;
+		font-size: 20px;
+		color: $contentText;
+	}
+
+	form .search-query {
+		@extend .input-style;
+	}
+
+	button {
+		@include vendor-prefix(box-shadow, none);
+	}
+
+	.nav-list .active a, .nav-list .active a:hover, .nav-list .active a:focus {
+		color: $contentText;
+	}
 }
 
 #serp-dd .result a:hover, #serp-dd .result > li.active, #full-Article strong a, .collection a, .contentWrapper a, .most-pop-articles .popArticles a, .most-pop-articles .popArticles a:hover span, .category-list .category .article-count, .category-list .category:hover .article-count {
@@ -281,11 +324,6 @@ h2 {
 	padding-right: 20px;
 	@include fluid();
 }
-#sidebar {
-	button {
-		@include vendor-prefix(box-shadow, none);
-	}
-}
 
 #docsSearch {
 	border-bottom: 1px solid #e3e3e3;
@@ -300,6 +338,7 @@ h2 {
 		@extend h1;
 		padding-left: 20px;
 		padding-right: 20px;
+		color: $lighterGray;
 	}
 	
 	+ #contentArea {
@@ -344,6 +383,12 @@ h2 {
 	}
 }
 
+.most-pop-articles {
+	h2, .popArticles {
+		text-align: left;
+	}
+}
+
 #fullArticle, #serp {
 	h1, h2, h3, h4, h5, p,
 	ul, ol, li,
@@ -375,4 +420,9 @@ h2 {
 
 button, .button {
 	@include button();
+}
+
+.articleFoot p {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-style: normal;
 }
