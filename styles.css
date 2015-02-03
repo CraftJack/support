@@ -349,6 +349,17 @@ h2, #contentArea h2 {
 #serp ul, #serp ol, #serp li,
 #serp div, #serp blockquote, #serp dd, #serp table {
   color: #505050; }
+#fullArticle h3, #fullArticle h4, #fullArticle h5, #serp h3, #serp h4, #serp h5 {
+  color: #747474;
+  line-height: 1.1; }
+#fullArticle h3, #serp h3 {
+  line-height: 1.1;
+  font-size: 18px; }
+#fullArticle h4, #serp h4 {
+  font-size: 16px; }
+#fullArticle h5, #serp h5 {
+  font-size: 12px;
+  text-transform: uppercase; }
 
 button, .button {
   background: #eeeeee;
