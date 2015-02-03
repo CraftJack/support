@@ -222,6 +222,7 @@ h2 {
 			background: #F8F8F8;
 			border-color: $contentBorder;
 			@extend .box-shadow;
+			text-decoration: none;
 
 			&:hover {
 				background: #FFF;

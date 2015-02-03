@@ -101,7 +101,8 @@ h2, #contentArea h2 {
   margin: 0 -31px 1em; }
   #contentArea .category-list .category {
     background: #F8F8F8;
-    border-color: #d6d6d6; }
+    border-color: #d6d6d6;
+    text-decoration: none; }
     #contentArea .category-list .category:hover {
       background: #FFF; }
   #contentArea .category-list.two-col .category {
