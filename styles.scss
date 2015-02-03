@@ -213,6 +213,7 @@ h2 {
 
 .contentWrapper {
 	@include vendor-prefix(box-shadow, (0 1px 5px 2px rgba(0,0,0,.02)));
+	margin-bottom: 20px;
 }
 
 #sidebar form .search-query {
