@@ -44,8 +44,7 @@ input[type=color],
   -ms-border-radius: 0;
   -moz-border-radius: 0;
   -o-border-radius: 0;
-  border-radius: 0;
-  height: auto; }
+  border-radius: 0; }
   select:focus,
   .input-style:focus,
   #sidebar form .search-query:focus,
@@ -416,6 +415,9 @@ h2, #contentArea h2 {
         -o-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
         box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
         border-color: #C0C3C8; }
+      #docsSearch #searchBar button.large {
+        font-size: 14px;
+        padding: .75em 1.5em; }
       @media screen and (min-width: 768px) {
         #docsSearch #searchBar button {
           width: 15%; } }
@@ -518,10 +520,20 @@ button, .button, .btn, input.btn {
     -o-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
     border-color: #C0C3C8; }
+  button.large, .button.large, #contactModal .btn, .btn.large, input.btn.large {
+    font-size: 14px;
+    padding: .75em 1.5em; }
 
 .articleFoot p {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-style: normal; }
 
-#contactModal h2 {
-  font-weight: bold; }
+#contactModal {
+  max-height: 80%;
+  overflow: auto; }
+  #contactModal h2 {
+    font-weight: bold; }
+  #contactModal input {
+    height: auto; }
+  #contactModal .modal-body {
+    max-height: none; }
