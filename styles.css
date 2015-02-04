@@ -97,7 +97,10 @@ h2, #contentArea h2 {
   font-weight: bold; }
 
 #contentArea .category-list {
-  margin: 0 -31px 1em; }
+  margin: 0 0 1em; }
+  @media (min-width: 600px) {
+    #contentArea .category-list {
+      margin: 0 -30px 1em; } }
   #contentArea .category-list .category {
     background: #F8F8F8;
     border-color: #d6d6d6;
@@ -105,11 +108,12 @@ h2, #contentArea h2 {
     #contentArea .category-list .category:hover {
       background: #FFF; }
   #contentArea .category-list.two-col .category {
-    width: 48.1%;
+    width: 49.5%;
     margin-bottom: 3px; }
     @media (min-width: 600px) {
       #contentArea .category-list.two-col .category {
-        margin-bottom: 20px; } }
+        margin-bottom: 20px;
+        width: 48.1%; } }
 
 .sep {
   margin-bottom: 1em; }
@@ -157,6 +161,8 @@ h2, #contentArea h2 {
   -moz-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
   -o-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3); }
+  .navbar .container-fluid {
+    max-width: 1040px; }
   .navbar .navbar-inner {
     background-color: transparent;
     padding-top: 10px;
@@ -166,24 +172,17 @@ h2, #contentArea h2 {
     right: -20px; }
     .navbar .btn-navbar:hover .icon-bar {
       background-color: #005f99; }
+    .navbar .btn-navbar:active {
+      -webkit-box-shadow: none;
+      -ms-box-shadow: none;
+      -moz-box-shadow: none;
+      -o-box-shadow: none;
+      box-shadow: none; }
   .navbar .brand {
     background: url("logo_cj_secondary.png") no-repeat 0 0 transparent;
     width: 210px;
     height: 40px;
-    margin-left: 0;
-    /*@if $point == large-device-lower {
-        @media (max-width: $large-screen) {
-            @content;
-        }
-    }
-    @else if $point == medium-device-lower {
-        @media (max-width: $medium-screen) {
-            @content;
-        }
-    }*/ }
-    @media screen and (min-width: 1080px) {
-      .navbar .brand {
-        margin-left: 20px; } }
+    margin-left: 0; }
     .navbar .brand span {
       display: none; }
   .navbar .nav {
@@ -199,23 +198,10 @@ h2, #contentArea h2 {
         @media (max-width: $medium-screen) {
             @content;
         }
-    }*/
-    /*@if $point == large-device-lower {
-        @media (max-width: $large-screen) {
-            @content;
-        }
-    }
-    @else if $point == medium-device-lower {
-        @media (max-width: $medium-screen) {
-            @content;
-        }
     }*/ }
     @media screen and (min-width: 768px) {
       .navbar .nav {
         padding-top: 0; } }
-    @media screen and (min-width: 1080px) {
-      .navbar .nav {
-        margin-right: 5px; } }
     .navbar .nav li a, .navbar .nav li #serp-dd .result a:hover, #serp-dd .result .navbar .nav li a:hover, .navbar .nav li #serp-dd .result > li.active, #serp-dd .navbar .nav li .result > li.active, .navbar .nav li #full-Article strong a, #full-Article strong .navbar .nav li a, .navbar .nav li .most-pop-articles .popArticles a:hover span, .most-pop-articles .popArticles a:hover .navbar .nav li span, .navbar .nav li .category-list .category .article-count, .category-list .category .navbar .nav li .article-count {
       color: #005f99;
       font-size: 16px;
@@ -232,28 +218,14 @@ h2, #contentArea h2 {
   padding-left: 20px;
   padding-right: 20px;
   margin-left: -20px;
-  margin-right: -20px;
-  /*@if $point == large-device-lower {
-      @media (max-width: $large-screen) {
-          @content;
-      }
-  }
-  @else if $point == medium-device-lower {
-      @media (max-width: $medium-screen) {
-          @content;
-      }
-  }*/ }
-  @media screen and (min-width: 768px) {
-    .row-fluid, .most-pop-articles {
-      margin-left: auto;
-      margin-right: auto; } }
+  margin-right: -20px; }
 
 #docsSearch {
   border-bottom: 1px solid #e3e3e3;
   background: #f7f7f7;
   border: solid #d6d6d6;
   border-width: 0 1px 1px;
-  max-width: 1040px;
+  max-width: 1080px;
   margin: 0 auto;
   margin-left: -20px;
   margin-right: -20px;
@@ -276,6 +248,7 @@ h2, #contentArea h2 {
     padding-right: 20px;
     color: #8e8e8e; }
   #docsSearch + #contentArea {
+    overflow: hidden;
     margin-left: -20px;
     margin-right: -20px;
     /*@if $point == large-device-lower {
@@ -287,8 +260,7 @@ h2, #contentArea h2 {
         @media (max-width: $medium-screen) {
             @content;
         }
-    }*/
-    max-width: 1040px; }
+    }*/ }
     @media screen and (min-width: 768px) {
       #docsSearch + #contentArea {
         margin-left: auto;
@@ -297,7 +269,23 @@ h2, #contentArea h2 {
       max-width: 200%;
       margin-left: -20px;
       margin-right: -20px;
-      padding: 20px 40px; }
+      padding: 20px 40px;
+      margin-bottom: 0;
+      /*@if $point == large-device-lower {
+          @media (max-width: $large-screen) {
+              @content;
+          }
+      }
+      @else if $point == medium-device-lower {
+          @media (max-width: $medium-screen) {
+              @content;
+          }
+      }*/ }
+      @media screen and (min-width: 768px) {
+        #docsSearch + #contentArea .most-pop-articles {
+          padding: 20px 20px; } }
+      #docsSearch + #contentArea .most-pop-articles + .sep {
+        margin-bottom: 0; }
   #docsSearch #searchBar {
     text-align: left; }
     #docsSearch #searchBar input, #docsSearch #searchBar button {
